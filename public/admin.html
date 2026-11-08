@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NIRKATHA BD — Admin</title><link rel="stylesheet" href="/admin.css"></head>
+<body>
+<header><a href="/" class="brand">NIRKATHA BD<span> / ADMIN</span></a><button id="logout" hidden>Logout</button></header>
+<main>
+<section id="login" class="panel login"><p class="tag">STORE CONTROL PANEL</p><h1>Admin login</h1><p>শুধু অনুমোদিত অ্যাডমিন প্রবেশ করতে পারবেন।</p><form id="loginForm"><label>Admin password<input id="password" type="password" required autocomplete="current-password"></label><button class="primary">LOGIN →</button><p id="loginMsg" class="msg"></p></form></section>
+<div id="dashboard" hidden>
+<div class="welcome"><div><p class="tag">NIRKATHA / MANAGEMENT</p><h1>Store dashboard.</h1><p>প্রোডাক্ট ও অর্ডার এখান থেকে পরিচালনা করুন।</p></div><button class="primary" onclick="loadAll()">↻ Refresh</button></div>
+<div class="stats"><div class="stat"><small>TOTAL ORDERS</small><b id="orderCount">0</b></div><div class="stat"><small>ACTIVE PRODUCTS</small><b id="productCount">0</b></div><div class="stat"><small>PENDING ORDERS</small><b id="pendingCount">0</b></div><div class="stat"><small>DELIVERED REVENUE</small><b id="revenueCount">৳0</b></div><div class="stat"><small>CUSTOMERS</small><b id="customerCount">0</b></div></div>
+<section class="panel"><div class="heading"><div><p class="tag">CATALOGUE</p><h2 id="productFormTitle">Add a product</h2></div></div>
+<form id="productForm" class="formgrid"><input type="hidden" id="productId"><label>Product name<input id="pName" required></label><label>Category<input id="pCategory" value="T-Shirt"></label><label>Price (৳)<input id="pPrice" type="number" min="1" required></label><label>Stock quantity<input id="pStock" type="number" min="0" value="10"></label><label class="wide">Image URL<input id="pImage" type="url" placeholder="https://..."></label><label class="wide">Sizes (comma separated)<input id="pSizes" value="S,M,L,XL,2XL"></label><label class="wide">Description<textarea id="pDescription"></textarea></label><div class="wide actions"><button class="primary">SAVE PRODUCT</button><button type="button" class="secondary" onclick="resetProduct()">CLEAR</button></div><p id="productMsg" class="msg wide"></p></form><div id="productList" class="tablewrap"></div></section>
+<section class="panel"><div class="heading"><div><p class="tag">CUSTOMER SALES</p><h2>Orders</h2></div></div><div id="ordersList" class="tablewrap"></div></section>
+</div></main><script src="/admin.js"></script></body></html>
